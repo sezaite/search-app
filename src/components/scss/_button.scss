@@ -1,0 +1,23 @@
+.btn {
+    height: 32px;
+    padding: 8px 40px;
+    font-size: 16px;
+    color: darken($main-color, 40%);
+    line-height: 1;
+    border-radius: 5px;
+    border: none;
+    margin-left: 10px;
+    box-shadow: 1px 1px 2px darken($main-color, 40%);
+    transition: all 0.3s;
+    background-color: $secondary-color;
+}
+
+.btn:hover {
+    cursor: pointer;
+    background-color: lighten($secondary-color, 10%);
+}
+
+.btn:active {
+    box-shadow: none;
+    background-color: $secondary-color;
+}
