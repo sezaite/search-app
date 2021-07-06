@@ -4,12 +4,18 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import List from './List';
 import isValidKeyword from './helpers/isValidKeyword';
 import getArticles from './helpers/getArticles';
+import Loader from './Loader';
 
 function Search() {
-    const [articles, setArticles] = useState([]);
+    const [articles, setArticles] = useState({ isFetching: true, articles: [] });
     const [message, setMessage] = useState("There is nothing to display yet");
     const [keywords, setKeywords] = useState("");
     const [errorMessage, setErrorMessage] = useState(true);
+
+    async function getData() {
+        const response = await getArticles();
+        setArticles({ isFetching: false, articles: response });
+    }
 
     useEffect(() => {
         setMessage(articles.length > 0 ? "" : "There are no results matching your request")
@@ -21,8 +27,7 @@ function Search() {
             setErrorMessage(true);
             return;
         }
-        const data = getArticles(keywords);
-        setArticles(data);
+        getData();
     }
 
     return (
@@ -39,7 +44,8 @@ function Search() {
 
                 </form>
             </div>
-            <h3 className="empty-list">{message}</h3> : <List />}
+            {articles.isFetching ? <Loader /> : articles.articles.length < 1 ? <h3 className="empty-list">{message}</h3> : <List data={articles.articles} />}
+
         </div>
     )
 }

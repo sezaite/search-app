@@ -1,11 +1,7 @@
 import React from 'react'
 
 function isValidKeyword() {
-    return (
-        <div>
-
-        </div>
-    )
+    return true;
 }
 
 export default isValidKeyword

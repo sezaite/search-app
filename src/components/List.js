@@ -1,9 +1,13 @@
-import React from 'react'
+import React from 'react';
+import ArticleCard from './ArticleCard';
 
-function List() {
+function List({ data }) {
+    console.log(data);
     return (
-        <div>
-
+        <div className="articles-container">
+            {data.map((article, index) => (
+                <ArticleCard key={index} publisher={article.publiser} title={article.title} description={article.description} img={article.img} />
+            ))}
         </div>
     )
 }
