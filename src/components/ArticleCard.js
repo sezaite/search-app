@@ -2,6 +2,7 @@ import React from 'react'
 
 function ArticleCard({ publisher, title, description, img }) {
     return (
+
         <div className="article-card" style={{ background: `${img}` }}>
             <div className="article-wrapper" >
                 <h3>{title}</h3>
