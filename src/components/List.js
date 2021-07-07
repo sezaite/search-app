@@ -2,7 +2,6 @@ import React from 'react';
 import ArticleCard from './ArticleCard';
 
 function List({ data }) {
-    console.log(data);
     return (
         <div className="articles-container">
             <div className="row">
