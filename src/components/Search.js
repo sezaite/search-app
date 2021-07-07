@@ -13,6 +13,7 @@ function Search() {
     const [errorMessage, setErrorMessage] = useState("");
 
     async function getData() {
+        //nunulinti paieskos rez
         const response = await getArticles();
         setArticles({ isFetching: false, articles: response });
     }
