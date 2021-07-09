@@ -49,7 +49,7 @@ function Search() {
                         <input type="text" placeholder="Type what you are looking for..." onChange={e => setKeywords(e.target.value)} value={keywords} />
                         <FontAwesomeIcon icon={faSearch} className="icon" />
                     </div>
-                    <button className="btn" onClick={search}>Search</button>
+                    <button className="btn" >Search</button>
 
                 </form>
             </div>
