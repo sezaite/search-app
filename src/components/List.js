@@ -2,7 +2,6 @@ import React from 'react';
 import ArticleCard from './ArticleCard';
 
 function List({ data }) {
-    //nezinau, ar key bus pasiekiamas cardo komponente
     return (
         <div className="articles-container">
             <div className="row">

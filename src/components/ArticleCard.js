@@ -6,7 +6,7 @@ function ArticleCard({ id, publisher, title, description, img }) {
 
         <div className="article-card" style={{ background: `${img}` }}>
             <div className="article-wrapper" >
-                <Link to={`/articles/${id}`}>
+                <Link to={`/articles/${id}`} target="_blank">
                     <h3>{title}</h3>
                     <h6>{publisher}</h6>
                     <p>{description}</p>
