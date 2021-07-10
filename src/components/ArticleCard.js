@@ -2,14 +2,14 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import LinesEllipsis from 'react-lines-ellipsis';
 
-function ArticleCard({ id, publisher, title, description, img }) {
+function ArticleCard({ date, title, description, img, url }) {
     return (
 
-        <div className="article-card" style={{ background: `${img}` }}>
+        <div className="article-card" style={{ background: `url(${img})` }}>
             <div className="article-wrapper" >
-                <Link to={`/articles/${id}`} target="_blank" style={{ textDecoration: "none" }}>
+                <Link to={{ pathname: url }} target="_blank" style={{ textDecoration: "none" }}>
                     <h3>{title}</h3>
-                    <h6>{publisher}</h6>
+                    <h6>{date}</h6>
                     <LinesEllipsis
                         className="ellipsis-text"
                         text={description}
@@ -20,7 +20,7 @@ function ArticleCard({ id, publisher, title, description, img }) {
                     </LinesEllipsis>
                 </Link>
             </div>
-        </div>
+        </div >
     )
 }
 

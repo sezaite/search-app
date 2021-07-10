@@ -1,5 +1,5 @@
 export function isValidCharacter(input) {
-    const charactersRgx = new RegExp("^[a-zA-Z0-9\s]+$");
+    const charactersRgx = new RegExp("^[a-zA-Z0-9_ ]*$");
     console.log(charactersRgx.test(input));
     return charactersRgx.test(input);
 }

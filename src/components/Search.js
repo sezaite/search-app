@@ -7,24 +7,17 @@ import getArticles from './helpers/getArticles';
 import Loader from './Loader';
 
 function Search() {
-    const [articles, setArticles] = useState({ isFetching: true, articles: [] });
-    const [message, setMessage] = useState("There is nothing to display yet");
+    const [articles, setArticles] = useState([]);
+    const [isFetching, setIsFetching] = useState(false);
+    // const [message, setMessage] = useState("There is nothing to display yet");
+    // const [searchInput, setSearchInput] = useState("");
     const [keywords, setKeywords] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
+    //errors on submit:
 
-    async function getData() {
-        const response = await getArticles();
-        console.log(response);
-        setArticles({ isFetching: false, articles: response });
-        setKeywords("");
-    }
-
-    useEffect(() => {
-        setMessage(articles.length > 0 ? "" : "There are no results matching your request")
-    }, [articles]); //nezinau, cia gal reikes padaryti ne po articles pasikeitimo, o ant submito
-
-    const search = (e) => {
+    const search = async (e) => {
         e.preventDefault();
+        setIsFetching(true);
         if (keywords === "") {
             setErrorMessage("Please enter your keywords!");
             return;
@@ -37,9 +30,19 @@ function Search() {
             setErrorMessage("Input is too long");
             return
         }
-        getData();
-    }
+        getArticles(keywords.split(" ")).then(res => {
+            console.log(res.articles);
+            setErrorMessage("");
+            setKeywords([]);
+            setArticles(res.articles);
+            setIsFetching(false);
+        }).catch(err => {
+            console.log(err);
+            setIsFetching(false);
+            setErrorMessage("There was a request error");
+        });
 
+    }
     return (
         <div className="articles-page">
             <div className="search-bar">
@@ -54,7 +57,7 @@ function Search() {
 
                 </form>
             </div>
-            {articles.isFetching ? <Loader /> : articles.articles.length < 1 ? <h3 className="empty-list">{message}</h3> : <List data={articles.articles} />}
+            {isFetching && keywords !== "" ? <Loader /> : <List data={articles} />}
 
         </div>
     )

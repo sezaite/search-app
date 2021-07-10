@@ -5,8 +5,8 @@ function List({ data }) {
     return (
         <div className="articles-container">
             <div className="row">
-                {data.map((article) => (
-                    <ArticleCard key={article.id} id={article.id} publisher={article.publiser} title={article.title} description={article.description} img={article.img} />
+                {data.map((article, index) => (
+                    <ArticleCard key={index} date={article.publishedAt} title={article.title} description={article.description} img={article.image} url={article.url} />
                 ))}
             </div>
         </div>
