@@ -2,7 +2,7 @@ import React from 'react'
 import axios from 'axios';
 
 async function getArticles() {
-    const apiURL = 'data.json';
+    const apiURL = '/data.json';
     let response = await axios.get(apiURL);
     return response.data.articles;
 }
