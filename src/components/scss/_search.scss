@@ -15,6 +15,7 @@
             font-size: 32px;
             text-align: center;
             margin: 26px 0 12px 0;
+            color: $secondary-color;
         }
 
         .error-msg {
@@ -76,5 +77,65 @@
         color: $main-color;
         text-align: center;
         margin-top: 20px;
+    }
+}
+
+@media (max-width: 680px) {
+    .articles-page {
+
+        .search-bar {
+            h2 {
+                font-size: 28px;
+            }
+    
+    
+            form {
+           
+            
+                .input {
+                    width: 280px;
+
+                    input {
+                        font-size: 12px;
+                    }
+                }
+    
+            }
+        }
+    }
+}
+
+@media (max-width: 460px) {
+    .articles-page {
+
+        .search-bar {
+            
+            h2 {
+                font-size: 20px;
+            }
+    
+            form {
+                flex-direction: column;
+                justify-content: start;
+                align-items: center;
+           
+            
+                .input {
+                    width: 180px;
+                    margin-bottom: 10px;
+
+                    input {
+                        font-size: 7px;
+                    }
+                }
+
+                .btn {
+                    width: 180px;
+                    margin-left: 0;
+                    margin: 5px 0 18px;
+                }
+    
+            }
+        }
     }
 }

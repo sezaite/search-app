@@ -5,6 +5,7 @@ import List from './List';
 import { isValidCharacter, isValidInputLength } from './helpers/isValidKeyword';
 import getArticles from './helpers/getArticles';
 import Loader from './Loader';
+import axios from 'axios';
 
 function Search() {
     const [articles, setArticles] = useState([]);
@@ -16,6 +17,11 @@ function Search() {
     //errors on submit:
 
     const search = async (e) => {
+        // axios.get('localhost:9000').then(res => {
+        //     console.log(res);
+        // }).catch((err) => {
+        //     console.log(err);
+        // });
         e.preventDefault();
         setIsFetching(true);
         if (keywords === "") {

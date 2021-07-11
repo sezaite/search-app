@@ -21,3 +21,9 @@
     box-shadow: none;
     background-color: $secondary-color;
 }
+
+@media (max-width: 680px) {
+    .btn {
+        padding: 6px 30px;
+    }
+}
