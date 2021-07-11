@@ -12,12 +12,12 @@
 
         .article-card {
             grid-column: auto / span 4;
-            // border: 1px solid $main-color;
             min-height: 250px;
             max-width: 350px;
             position: relative;
             background-position: center;
             background-size: cover;
+            filter: grayscale(1);
             transition: all 0.3s;
             
 
@@ -61,6 +61,7 @@
         .article-card:hover {
             transform: scale(1.04);
             cursor: pointer;
+            filter: grayscale(0);
         }
     }
     
