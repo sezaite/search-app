@@ -4,6 +4,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import List from './List';
 import { isValidCharacter, isValidInputLength } from './helpers/isValidKeyword';
 import getArticles from './helpers/getArticles';
+import sendData from './helpers/sendData';
 import Loader from './Loader';
 import axios from 'axios';
 
@@ -17,7 +18,7 @@ function Search() {
     //errors on submit:
 
     const search = async (e) => {
-        // axios.get('localhost:9000').then(res => {
+        // axios.post('http://localhost:9000/search', { keywords: ['mama', 'ssese'] }).then(res => {
         //     console.log(res);
         // }).catch((err) => {
         //     console.log(err);
@@ -47,6 +48,8 @@ function Search() {
             setIsFetching(false);
             setErrorMessage("There was a request error");
         });
+
+        sendData({ keywords }, 'search');
 
     }
     return (
