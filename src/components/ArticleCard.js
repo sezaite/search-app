@@ -5,7 +5,7 @@ import LinesEllipsis from 'react-lines-ellipsis';
 function ArticleCard({ date, title, description, img, url }) {
     return (
 
-        <div className="article-card" style={{ background: `url(${img})` }}>
+        <div className="article-card" style={{ backgroundImage: `url(${img})` }}>
             <div className="article-wrapper" >
                 <Link to={{ pathname: url }} target="_blank" style={{ textDecoration: "none" }}>
                     <h3>{title}</h3>
@@ -13,10 +13,11 @@ function ArticleCard({ date, title, description, img, url }) {
                     <LinesEllipsis
                         className="ellipsis-text"
                         text={description}
-                        maxLine='3'
-                        ellipsis='...>'
+                        maxLine='4'
+                        ellipsis='...'
                         trimRight
-                        basedOn='words'>
+                        basedOn='letters'
+                    >
                     </LinesEllipsis>
                 </Link>
             </div>
