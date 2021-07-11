@@ -6,39 +6,32 @@ import { isValidCharacter, isValidInputLength } from './helpers/isValidKeyword';
 import getArticles from './helpers/getArticles';
 import sendData from './helpers/sendData';
 import Loader from './Loader';
-import axios from 'axios';
 
 function Search() {
     const [articles, setArticles] = useState([]);
     const [isFetching, setIsFetching] = useState(false);
-    // const [message, setMessage] = useState("There is nothing to display yet");
-    // const [searchInput, setSearchInput] = useState("");
     const [keywords, setKeywords] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
-    //errors on submit:
 
     const search = async (e) => {
-        // axios.post('http://localhost:9000/search', { keywords: ['mama', 'ssese'] }).then(res => {
-        //     console.log(res);
-        // }).catch((err) => {
-        //     console.log(err);
-        // });
         e.preventDefault();
         setIsFetching(true);
         if (keywords === "") {
             setErrorMessage("Please enter your keywords!");
+            setIsFetching(false);
             return;
         }
         if (!isValidCharacter(keywords)) {
             setErrorMessage("Invalid characters");
+            setIsFetching(false);
             return;
         }
         if (!isValidInputLength(keywords)) {
             setErrorMessage("Input is too long");
+            setIsFetching(false);
             return
         }
         getArticles(keywords.split(" ")).then(res => {
-            console.log(res.articles);
             setErrorMessage("");
             setKeywords([]);
             setArticles(res.articles);
