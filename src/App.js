@@ -7,7 +7,7 @@ function App() {
     <Router>
       <div className="App">
         <Switch>
-          <Route exact path="/search-app">
+          <Route exact path="/">
             <Search />
           </Route>
         </Switch>
